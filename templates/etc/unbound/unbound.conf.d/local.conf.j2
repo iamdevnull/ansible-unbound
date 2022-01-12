@@ -4,6 +4,11 @@ server:
   interface: {{ item }}
 {%   endfor %}
 {% endif %}
+
+{% if interface_automatic is defined %}
+  interface-automatic: yes
+{% endif %}
+
 {% if unbound_access_control is defined %}
 {%   for item in unbound_access_control %}
   access-control: {{ item.subnet }} {{ item.action }}
