@@ -1,0 +1,21 @@
+---
+- name: Get docker interface name
+  set_fact:
+    docker_interface_name: '{{ item }}'
+  loop: '{{ ansible_facts.interfaces }}'
+  when: 'item is regex("^docker[0-9]")'
+
+- name: Get docker interface ip
+  set_fact:
+    docker_interface_ip: '{{ hostvars[inventory_hostname]["ansible_" ~ docker_interface_name]["ipv4"]["address"] }}'
+  when: 'docker_interface_name | length > 0'
+
+- name: debug
+  debug:
+    msg: 'Interface {{ docker_interface_name }} found'
+  when: 'docker_interface_name | length > 0'
+
+- name: debug
+  debug:
+    msg: '{{ docker_interface_ip }}'
+  when: 'docker_interface_ip | length > 0'

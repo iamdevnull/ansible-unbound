@@ -1,6 +1,6 @@
 ---
 # tasks file for ansible-unbound
-- include: systemd-resolved.yml
+- include: check-docker.yml
   when: ansible_os_family == "Debian"
 
 - include: debian.yml
@@ -10,6 +10,9 @@
 
 - include: redhat.yml
   when: ansible_os_family == "RedHat"
+
+- include: systemd-resolved.yml
+  when: ansible_os_family == "Debian"
 
 - include: config_unbound.yml
   when: config_unbound
