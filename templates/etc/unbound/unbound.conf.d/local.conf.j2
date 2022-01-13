@@ -1,16 +1,20 @@
 # {{ ansible_managed }}
 
 server:
+
+{% if unbound_verbosity is defined %}
+  verbosity: {{ unbound_verbosity }}
+{% endif %}
 {% if unbound_listen_addresses is defined %}
 {%   for item in unbound_listen_addresses %}
   interface: {{ item }}
 {%   endfor %}
 {% endif %}
-
-{% if interface_automatic is defined %}
-  interface-automatic: yes
-{% endif %}
-
+  do-ip4: yes
+  do-udp: yes
+  do-tcp: yes
+  do-ip6: no
+  prefer-ip6: no
 {% if unbound_access_control is defined %}
 {%   for item in unbound_access_control %}
   access-control: {{ item.subnet }} {{ item.action }}

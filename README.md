@@ -12,6 +12,9 @@ None
 ---
 # defaults file for ansible-unbound
 
+# Defines unbound verbosity
+verbosity: 0
+
 # Defines if unbound should be configured
 config_unbound: false
 
@@ -88,9 +91,6 @@ unbound_listen_addresses:
 #  - 127.0.0.1
 #  - ::1
 #  - '{{ ansible_default_ipv4.address }}'
-
-# Detect source interface on UDP queries and copy them to replies
-interface_automatic: false
 
 # Defines if all dns queries should be logged.
 unbound_log_queries: false
