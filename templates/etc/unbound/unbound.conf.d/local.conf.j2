@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 server:
 {% if unbound_listen_addresses is defined %}
 {%   for item in unbound_listen_addresses %}
