@@ -27,3 +27,8 @@
   ansible.builtin.service:
     name: unbound
     state: restarted
+
+- name: restart docker service
+  ansible.builtin.service:
+    name: docker
+    state: restarted
