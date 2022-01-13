@@ -22,3 +22,8 @@
       nameserver {{ docker_interface_ip }}
   when: 'docker_interface_name | length > 0'
   changed_when: false
+
+- name: restart unbound service
+  ansible.builtin.service:
+    name: unbound
+    state: restarted

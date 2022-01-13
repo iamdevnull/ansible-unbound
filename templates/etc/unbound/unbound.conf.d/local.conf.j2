@@ -2,9 +2,7 @@
 
 server:
 
-{% if unbound_verbosity is defined %}
   verbosity: {{ unbound_verbosity }}
-{% endif %}
 {% if unbound_listen_addresses is defined %}
 {%   for item in unbound_listen_addresses %}
   interface: {{ item }}
@@ -22,6 +20,7 @@ server:
 {% endif %}
   cache-min-ttl: {{ unbound_cache_min_ttl }}
   cache-max-ttl: {{ unbound_cache_max_ttl }}
+  cache-max-negative-ttl: {{ cache_max_negative_ttl }}
 {% if unbound_enable_prefetch is defined and unbound_enable_prefetch %}
   prefetch: yes
 {% endif %}

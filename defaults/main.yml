@@ -1,11 +1,11 @@
 ---
 # defaults file for ansible-unbound
 
-# Defines unbound verbosity
-verbosity: 0
-
 # Defines if unbound should be configured
 config_unbound: false
+
+# Defines unbound verbosity
+unbound_verbosity: 0
 
 # Defines access controls for usage of unbound
 # Available actions (allow|deny|refuse|allow_snoop)
@@ -35,6 +35,11 @@ unbound_authoritative_zones: []
 # Maximum lifetime of cached entries.
 # Default is 86400 seconds (1  day).
 unbound_cache_max_ttl: 86400
+
+# Time to live maximum for negative responses, these have a SOA in
+# the authority section that is limited in time.  Default is 3600.
+# This applies to nxdomain and nodata answers.
+cache_max_negative_ttl: 3600
 
 # Minimum lifetime of cache entries in seconds.
 # Default is 0
