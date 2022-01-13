@@ -1,7 +1,7 @@
+#
 # {{ ansible_managed }}
-
+#
 server:
-
   verbosity: {{ unbound_verbosity }}
 {% if unbound_listen_addresses is defined %}
 {%   for item in unbound_listen_addresses %}
