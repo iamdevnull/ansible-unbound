@@ -3,7 +3,9 @@
 #
 server:
   verbosity: {{ unbound_verbosity }}
-{% if unbound_listen_addresses is defined %}
+{% if docker_interface_ip is defined %}
+  interface: {{ docker_interface_ip }}
+{% elif unbound_listen_addresses is defined %}
 {%   for item in unbound_listen_addresses %}
   interface: {{ item }}
 {%   endfor %}

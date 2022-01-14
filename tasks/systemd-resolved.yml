@@ -27,8 +27,10 @@
   ansible.builtin.service:
     name: unbound
     state: restarted
+  when: config_unbound.changed
 
 - name: restart docker service
   ansible.builtin.service:
     name: docker
     state: restarted
+  when: config_unbound.changed

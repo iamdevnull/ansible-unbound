@@ -24,13 +24,13 @@ unbound_access_control:
 # create_ptr_records: true
 # otherwise set create_ptr_records: false
 unbound_authoritative_zones: []
-  # - zone: 'vagrant.local'
-  #   a_records:
-  #     - name: 'srv01'
-  #       ip: 192.168.250.101
-  #     - name: 'srv02'
-  #       ip: 192.168.250.102
-  #   create_ptr_records: true
+# - zone: 'vagrant.local'
+#   a_records:
+#     - name: 'srv01'
+#       ip: 192.168.250.101
+#     - name: 'srv02'
+#       ip: 192.168.250.102
+#   create_ptr_records: true
 
 # Maximum lifetime of cached entries.
 # Default is 86400 seconds (1  day).
@@ -56,16 +56,16 @@ unbound_enable_optimizations: false
 
 # Defines forwarding zones and addresses to forward to for each zone
 unbound_forward_zones: []
-  # - zone: everythingshouldbevirtual.local
-  #   forward_addresses:
-  #     - 10.0.101.111
-  #     - 10.0.101.112
-    # Defines all zones not specifically defined to forward to addresses
-    # Google DNS in this example.
-  # - zone: '.'
-  #   forward_addresses:
-  #     - 8.8.8.8
-  #     - 8.8.4.4
+# - zone: everythingshouldbevirtual.local
+#   forward_addresses:
+#     - 10.0.101.111
+#     - 10.0.101.112
+# Defines all zones not specifically defined to forward to addresses
+# Google DNS in this example.
+# - zone: '.'
+#   forward_addresses:
+#     - 8.8.8.8
+#     - 8.8.4.4
 
 # Enable to not answer id.server and hostname.bind queries.
 unbound_hide_identity: true

@@ -2,6 +2,8 @@
 
 An [Ansible](https://www.ansible.com) to install/confgiure [Unbound DNS server](https://www.unbound.net)
 
+Optimized for operating with Docker
+
 ## Requirements
 
 None
@@ -35,13 +37,13 @@ unbound_access_control:
 # create_ptr_records: true
 # otherwise set create_ptr_records: false
 unbound_authoritative_zones: []
-  # - zone: 'vagrant.local'
-  #   a_records:
-  #     - name: 'srv01'
-  #       ip: 192.168.250.101
-  #     - name: 'srv02'
-  #       ip: 192.168.250.102
-  #   create_ptr_records: true
+# - zone: 'vagrant.local'
+#   a_records:
+#     - name: 'srv01'
+#       ip: 192.168.250.101
+#     - name: 'srv02'
+#       ip: 192.168.250.102
+#   create_ptr_records: true
 
 # Maximum lifetime of cached entries.
 # Default is 86400 seconds (1  day).
@@ -71,8 +73,8 @@ unbound_forward_zones: []
   #   forward_addresses:
   #     - 10.0.101.111
   #     - 10.0.101.112
-    # Defines all zones not specifically defined to forward to addresses
-    # Google DNS in this example.
+  # Defines all zones not specifically defined to forward to addresses
+  # Google DNS in this example.
   # - zone: '.'
   #   forward_addresses:
   #     - 8.8.8.8
@@ -139,8 +141,9 @@ BSD
 
 ## Author Information
 
-Larry Smith Jr.
+Larry Smith Jr. and iamdevnull
 
 -   [@mrlesmithjr](https://www.twitter.com/mrlesmithjr)
 -   [EverythingShouldBeVirtual](http://everythingshouldbevirtual.com)
 -   mrlesmithjr [at] gmail.com
+-   mas-i [at] hotmail.de
